@@ -1,7 +1,7 @@
 name: Build bridge for aarch64-musl
 
 on:
-  workflow_dispatch:  # Позволяет запускать вручную
+  workflow_dispatch:
   push:
     branches: [ main ]
 
@@ -26,7 +26,7 @@ jobs:
           cross build --release --target aarch64-unknown-linux-musl
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4  # <-- Исправлено на v4
+        uses: actions/upload-artifact@v4
         with:
           name: alice-spotify-bridge-aarch64-musl
-          path: bridge/target/aarch64-unknown-linux-musl/release/bridge
+          path: bridge/target/aarch64-unknown-linux-musl/release/librespot-bridge
